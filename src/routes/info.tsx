@@ -4,6 +4,7 @@ import {
   Home,
   Info,
   LogOut,
+  MapPin,
   ShoppingBag,
   ShoppingCart,
   Tv,
@@ -15,17 +16,17 @@ import infoHero from "@/assets/info-hero.png.asset.json";
 export const Route = createFileRoute("/info")({
   head: () => ({
     meta: [
-      { title: "Info útil | Guía del huésped" },
+      { title: "Lo esencial | Guía del huésped" },
       {
         name: "description",
         content:
-          "Toda la información práctica de tu estadía: Wi-Fi, Smart TV, transporte, supermercados, shopping y check-out.",
+          "Toda la información esencial de tu estadía: la casa, Mi Palermo, Wi-Fi, Smart TV, transporte, supermercados, shopping y check-out.",
       },
-      { property: "og:title", content: "Info útil | Guía del huésped" },
+      { property: "og:title", content: "Lo esencial | Guía del huésped" },
       {
         property: "og:description",
         content:
-          "Toda la información práctica de tu estadía: Wi-Fi, Smart TV, transporte, supermercados, shopping y check-out.",
+          "Toda la información esencial de tu estadía: la casa, Mi Palermo, Wi-Fi, Smart TV, transporte, supermercados, shopping y check-out.",
       },
     ],
   }),
@@ -40,6 +41,30 @@ const sections = [
   { id: "shopping", label: "Shopping", icon: ShoppingBag },
   { id: "checkout", label: "Check-out", icon: LogOut },
 ];
+
+interface IconCircleProps {
+  icon: React.ElementType;
+  label: string;
+}
+
+function IconCircle({ icon: Icon, label }: IconCircleProps) {
+  return (
+    <button
+      type="button"
+      className="group flex flex-col items-center gap-3 text-center"
+    >
+      <div className="grid h-[72px] w-[72px] place-items-center rounded-full border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 group-hover:border-ring group-hover:bg-accent/20 md:h-[88px] md:w-[88px]">
+        <Icon
+          className="h-7 w-7 text-foreground transition-transform duration-300 group-hover:scale-105 md:h-8 md:w-8"
+          strokeWidth={1.4}
+        />
+      </div>
+      <span className="text-[0.65rem] tracking-[0.16em] text-foreground uppercase md:text-xs">
+        {label}
+      </span>
+    </button>
+  );
+}
 
 function InfoUtil() {
   return (
@@ -68,53 +93,39 @@ function InfoUtil() {
       </section>
 
       {/* Content */}
-      <section className="px-5 pb-8 pt-2 md:px-8 md:pb-10">
+      <section className="px-5 pb-12 pt-2 md:px-8 md:pb-16">
         <div className="mx-auto w-full max-w-md md:max-w-xl">
           {/* Title */}
-          <div className="mb-8 flex items-center justify-center gap-4 md:mb-10">
+          <div className="mb-8 flex items-center justify-center gap-4 md:mb-12">
             <span className="h-px w-12 bg-border md:w-16" aria-hidden="true" />
             <h1 className="text-center text-2xl tracking-[0.18em] text-foreground md:text-3xl">
-              INFO ÚTIL
+              LO ESENCIAL
             </h1>
             <span className="h-px w-12 bg-border md:w-16" aria-hidden="true" />
           </div>
 
-          {/* Icon grid */}
-          <div className="grid grid-cols-3 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-10">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                type="button"
-                className="group flex flex-col items-center gap-3 text-center"
-              >
-                <div className="grid h-[72px] w-[72px] place-items-center rounded-full border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 group-hover:border-ring group-hover:bg-accent/20 md:h-[88px] md:w-[88px]">
-                  <section.icon
-                    className="h-7 w-7 text-foreground transition-transform duration-300 group-hover:scale-105 md:h-8 md:w-8"
-                    strokeWidth={1.4}
-                  />
-                </div>
-                <span className="text-[0.65rem] tracking-[0.16em] text-foreground uppercase md:text-xs">
-                  {section.label}
-                </span>
-              </button>
-            ))}
-          </div>
-
-          {/* Hint card */}
-          <div className="mt-10 flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-[var(--shadow-card)] md:mt-12 md:p-5">
-            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border bg-background md:h-11 md:w-11">
-              <Info
-                className="h-5 w-5 text-muted-foreground md:h-5 md:w-5"
-                strokeWidth={1.5}
-              />
+          {/* Icons */}
+          <div className="mt-10 flex flex-col items-center gap-10 md:mt-14 md:gap-12">
+            {/* Centered top pair */}
+            <div className="grid grid-cols-2 gap-x-8 md:gap-x-12">
+              <IconCircle icon={Home} label="La casa" />
+              <IconCircle icon={MapPin} label="Yo / Mi Palermo" />
             </div>
-            <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
-              Hacé clic en un icono para ver la información detallada.
-            </p>
+
+            {/* Main grid */}
+            <div className="grid grid-cols-3 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-10">
+              {sections.map((section) => (
+                <IconCircle
+                  key={section.id}
+                  icon={section.icon}
+                  label={section.label}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Home link */}
-          <div className="mt-8 flex justify-center md:mt-10">
+          <div className="mt-10 flex justify-center md:mt-14">
             <Link
               to="/"
               className="group flex flex-col items-center gap-1 text-muted-foreground transition-colors duration-300 hover:text-foreground"
@@ -133,3 +144,4 @@ function InfoUtil() {
     </main>
   );
 }
+
