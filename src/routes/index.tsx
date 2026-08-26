@@ -20,11 +20,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const languages = [
-  { code: "es", label: "Español", native: "Bienvenidos" },
-  { code: "en", label: "English", native: "Welcome" },
-  { code: "pt", label: "Português", native: "Bem-vindos" },
-];
 
 
 function Home() {
