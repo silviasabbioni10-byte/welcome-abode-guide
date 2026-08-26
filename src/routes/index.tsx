@@ -22,13 +22,10 @@ export const Route = createFileRoute("/")({
 
 const languages = [
   { code: "es", label: "Español", native: "Bienvenidos" },
-  { code: "en", label: English(), native: "Welcome" },
+  { code: "en", label: "English", native: "Welcome" },
   { code: "pt", label: "Português", native: "Bem-vindos" },
 ];
 
-function English() {
-  return "English";
-}
 
 function Home() {
   return (
