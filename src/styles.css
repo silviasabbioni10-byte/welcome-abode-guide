@@ -144,3 +144,36 @@
     color: var(--color-foreground);
   }
 }
+
+/* Guest guide design tokens */
+:root {
+  --radius: 1rem;
+  --background: oklch(0.982 0.006 80);
+  --foreground: oklch(0.26 0.012 40);
+  --card: oklch(0.995 0.003 90);
+  --card-foreground: oklch(0.26 0.012 40);
+  --primary: oklch(0.3 0.015 35);
+  --primary-foreground: oklch(0.985 0.005 85);
+  --secondary: oklch(0.93 0.02 20);
+  --secondary-foreground: oklch(0.3 0.015 35);
+  --muted: oklch(0.955 0.008 70);
+  --muted-foreground: oklch(0.55 0.014 50);
+  --accent: oklch(0.88 0.035 15);
+  --accent-foreground: oklch(0.28 0.015 30);
+  --border: oklch(0.9 0.01 60);
+  --input: oklch(0.9 0.01 60);
+  --ring: oklch(0.78 0.04 20);
+  --shadow-soft: 0 18px 50px -24px oklch(0.4 0.03 40 / 0.28);
+  --shadow-card: 0 10px 30px -18px oklch(0.4 0.03 40 / 0.22);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    letter-spacing: 0.01em;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+  }
+}
