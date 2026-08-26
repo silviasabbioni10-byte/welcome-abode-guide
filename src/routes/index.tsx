@@ -52,8 +52,8 @@ function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3">
-          <p className="text-center text-[0.68rem] uppercase tracking-[0.35em] text-muted-foreground">
+        <div className="flex flex-col gap-3 md:gap-4">
+          <p className="text-center text-[0.68rem] uppercase tracking-[0.35em] text-muted-foreground md:text-xs">
             Elegí tu idioma
           </p>
 
@@ -61,12 +61,12 @@ function Home() {
             <button
               key={lang.code}
               type="button"
-              className="group flex items-center justify-between rounded-2xl border border-border bg-card px-6 py-4 text-left shadow-[var(--shadow-card)] transition-all duration-300 hover:border-ring hover:bg-accent/30"
+              className="group flex items-center justify-between rounded-2xl border border-border bg-card px-6 py-4 text-left shadow-[var(--shadow-card)] transition-all duration-300 hover:border-ring hover:bg-accent/30 md:px-8 md:py-5"
             >
-              <span className="text-sm tracking-[0.18em] text-foreground uppercase">
+              <span className="text-sm tracking-[0.18em] text-foreground uppercase md:text-base">
                 {lang.label}
               </span>
-              <span className="font-display text-base text-muted-foreground">
+              <span className="font-display text-base text-muted-foreground md:text-lg">
                 {lang.native}
               </span>
             </button>
