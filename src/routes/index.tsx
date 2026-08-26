@@ -56,26 +56,26 @@ function Home() {
           aria-label="Selección de idioma"
           className="flex items-center justify-center gap-4 text-xs tracking-[0.2em] text-muted-foreground uppercase md:text-sm"
         >
-          <button
-            type="button"
+          <Link
+            to="/info"
             className="transition-colors duration-300 hover:text-foreground"
           >
             Español
-          </button>
+          </Link>
           <span className="h-1 w-1 rounded-full bg-border" aria-hidden="true" />
-          <button
-            type="button"
+          <Link
+            to="/info"
             className="transition-colors duration-300 hover:text-foreground"
           >
             English
-          </button>
+          </Link>
           <span className="h-1 w-1 rounded-full bg-border" aria-hidden="true" />
-          <button
-            type="button"
+          <Link
+            to="/info"
             className="transition-colors duration-300 hover:text-foreground"
           >
             Português
-          </button>
+          </Link>
         </nav>
       </section>
     </main>
