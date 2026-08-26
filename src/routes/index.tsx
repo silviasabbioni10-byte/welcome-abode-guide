@@ -29,17 +29,17 @@ const languages = [
 
 function Home() {
   return (
-    <main className="min-h-screen bg-background px-5 pb-10 pt-6">
-      <section className="mx-auto flex w-full max-w-md flex-col gap-8">
-        <div className="flex h-[62vh] min-h-[420px] gap-3 overflow-hidden rounded-2xl bg-card p-3 shadow-[var(--shadow-soft)]">
+    <main className="min-h-screen bg-background px-5 pb-10 pt-6 md:px-8 md:pb-14 md:pt-10">
+      <section className="mx-auto flex w-full max-w-md flex-col gap-8 md:max-w-xl md:gap-10">
+        <div className="flex h-[62vh] min-h-[420px] gap-3 overflow-hidden rounded-2xl bg-card p-3 shadow-[var(--shadow-soft)] md:min-h-[520px] md:rounded-[1.75rem] md:p-4">
           <div className="flex w-[30%] flex-col items-center justify-center rounded-2xl bg-muted/70 py-6">
             <h1
-              className="text-3xl tracking-[0.32em] text-foreground"
+              className="text-3xl tracking-[0.32em] text-foreground md:text-4xl"
               style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
             >
               BIENVENIDOS
             </h1>
-            <span className="mt-4 h-10 w-px bg-border" aria-hidden="true" />
+            <span className="mt-4 h-10 w-px bg-border md:mt-6 md:h-14" aria-hidden="true" />
           </div>
 
           <div className="w-[70%] overflow-hidden rounded-2xl">
