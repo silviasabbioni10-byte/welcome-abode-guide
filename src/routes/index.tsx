@@ -57,20 +57,22 @@ function Home() {
             Elegí tu idioma
           </p>
 
-          {languages.map((lang) => (
-            <button
-              key={lang.code}
-              type="button"
-              className="group flex items-center justify-between rounded-2xl border border-border bg-card px-6 py-4 text-left shadow-[var(--shadow-card)] transition-all duration-300 hover:border-ring hover:bg-accent/30 md:px-8 md:py-5"
-            >
-              <span className="text-sm tracking-[0.18em] text-foreground uppercase md:text-base">
-                {lang.label}
-              </span>
-              <span className="font-display text-base text-muted-foreground md:text-lg">
-                {lang.native}
-              </span>
-            </button>
-          ))}
+          <div className="grid grid-cols-3 gap-3 md:gap-4">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                type="button"
+                className="group flex flex-col items-center justify-center gap-1 rounded-2xl border border-border bg-card px-3 py-4 text-center shadow-[var(--shadow-card)] transition-all duration-300 hover:border-ring hover:bg-accent/30 md:px-4 md:py-5"
+              >
+                <span className="text-xs tracking-[0.14em] text-foreground uppercase md:text-sm">
+                  {lang.label}
+                </span>
+                <span className="font-display text-sm italic text-muted-foreground md:text-base">
+                  {lang.native}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
       </section>
     </main>
