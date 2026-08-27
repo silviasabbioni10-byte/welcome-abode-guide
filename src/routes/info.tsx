@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Bus,
   Home,
-  Info,
   LogOut,
   MapPin,
   ShoppingBag,
