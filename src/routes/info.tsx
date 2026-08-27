@@ -33,8 +33,8 @@ export const Route = createFileRoute("/info")({
 });
 
 const sections = [
-  { id: "wifi", label: "Wi-Fi", icon: Wifi },
-  { id: "tv", label: "Smart TV", icon: Tv },
+  { id: "wifi", label: "Wi-Fi", icon: Wifi, to: "/wifi" },
+  { id: "tv", label: "Smart TV", icon: Tv, to: "/smart-tv" },
   { id: "transporte", label: "Transporte", icon: Bus },
   { id: "supermercados", label: "Supermercados", icon: ShoppingCart },
   { id: "shopping", label: "Shopping", icon: ShoppingBag },

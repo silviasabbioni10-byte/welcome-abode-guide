@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InfoRouteImport } from './routes/info'
 import { Route as LaCasaRouteImport } from './routes/la-casa'
+import { Route as SmartTvRouteImport } from './routes/smart-tv'
+import { Route as WifiRouteImport } from './routes/wifi'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +30,53 @@ const LaCasaRoute = LaCasaRouteImport.update({
   path: '/la-casa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SmartTvRoute = SmartTvRouteImport.update({
+  id: '/smart-tv',
+  path: '/smart-tv',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WifiRoute = WifiRouteImport.update({
+  id: '/wifi',
+  path: '/wifi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/info': typeof InfoRoute
   '/la-casa': typeof LaCasaRoute
+  '/smart-tv': typeof SmartTvRoute
+  '/wifi': typeof WifiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/info': typeof InfoRoute
   '/la-casa': typeof LaCasaRoute
+  '/smart-tv': typeof SmartTvRoute
+  '/wifi': typeof WifiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/info': typeof InfoRoute
   '/la-casa': typeof LaCasaRoute
+  '/smart-tv': typeof SmartTvRoute
+  '/wifi': typeof WifiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/info' | '/la-casa'
+  fullPaths: '/' | '/info' | '/la-casa' | '/smart-tv' | '/wifi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/info' | '/la-casa'
-  id: '__root__' | '/' | '/info' | '/la-casa'
+  to: '/' | '/info' | '/la-casa' | '/smart-tv' | '/wifi'
+  id: '__root__' | '/' | '/info' | '/la-casa' | '/smart-tv' | '/wifi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   InfoRoute: typeof InfoRoute
   LaCasaRoute: typeof LaCasaRoute
+  SmartTvRoute: typeof SmartTvRoute
+  WifiRoute: typeof WifiRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +102,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LaCasaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/smart-tv': {
+      id: '/smart-tv'
+      path: '/smart-tv'
+      fullPath: '/smart-tv'
+      preLoaderRoute: typeof SmartTvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wifi': {
+      id: '/wifi'
+      path: '/wifi'
+      fullPath: '/wifi'
+      preLoaderRoute: typeof WifiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +123,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   InfoRoute: InfoRoute,
   LaCasaRoute: LaCasaRoute,
+  SmartTvRoute: SmartTvRoute,
+  WifiRoute: WifiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
