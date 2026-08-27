@@ -44,14 +44,12 @@ const sections = [
 interface IconCircleProps {
   icon: React.ElementType;
   label: string;
+  to?: string;
 }
 
-function IconCircle({ icon: Icon, label }: IconCircleProps) {
-  return (
-    <button
-      type="button"
-      className="group flex flex-col items-center gap-3 text-center"
-    >
+function IconCircle({ icon: Icon, label, to }: IconCircleProps) {
+  const content = (
+    <>
       <div className="grid h-[72px] w-[72px] place-items-center rounded-full border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 group-hover:border-ring group-hover:bg-accent/20 md:h-[88px] md:w-[88px]">
         <Icon
           className="h-7 w-7 text-foreground transition-transform duration-300 group-hover:scale-105 md:h-8 md:w-8"
@@ -61,6 +59,23 @@ function IconCircle({ icon: Icon, label }: IconCircleProps) {
       <span className="text-[0.65rem] tracking-[0.16em] text-foreground uppercase md:text-xs">
         {label}
       </span>
+    </>
+  );
+
+  const className =
+    "group flex flex-col items-center gap-3 text-center";
+
+  if (to) {
+    return (
+      <Link to={to} className={className}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <button type="button" className={className}>
+      {content}
     </button>
   );
 }
@@ -107,8 +122,8 @@ function InfoUtil() {
           <div className="mt-10 flex flex-col items-center gap-10 md:mt-14 md:gap-12">
             {/* Centered top pair */}
             <div className="grid grid-cols-2 gap-x-8 md:gap-x-12">
-              <IconCircle icon={Home} label="La casa" />
-              <IconCircle icon={MapPin} label="Yo / Mi Palermo" />
+              <IconCircle icon={Home} label="La casa y yo" to="/la-casa" />
+              <IconCircle icon={MapPin} label="Mi Palermo" />
             </div>
 
             {/* Main grid */}
@@ -143,4 +158,3 @@ function InfoUtil() {
     </main>
   );
 }
-
